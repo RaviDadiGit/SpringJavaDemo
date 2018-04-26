@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="address" class="com.ravi.spring.core.dependencyinjection.Address">
+		<property name="city" value="vizag" />
+		<property name="state" value="Andhra" />
+		<property name="pincode" value="530027" />
+	</bean>
+	<bean id="address1" class="com.ravi.spring.core.dependencyinjection.Address">
+		<property name="city" value="bangalore" />
+		<property name="state" value="Karnataka" />
+		<property name="pincode" value="530021" />
+	</bean>
+	<bean id="emp1" class="com.ravi.spring.core.dependencyinjection.Employee">
+		<property name="empID" value="111" />
+		<property name="empName" value="ravi varma" />
+		<property name="empGender" value="M" />
+		<constructor-arg ref="address" />
+	</bean>
+	<bean id="emp2" class="com.ravi.spring.core.dependencyinjection.Employee">
+		<property name="empID" value="112" />
+		<property name="empName" value="Triveni" />
+		<property name="empGender" value="F" />
+		<property name="address" ref="address1" />
+	</bean>
+</beans>
